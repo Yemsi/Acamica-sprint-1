@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&family=IBM+Plex+Sans:wght@300&display=swap');
+*{
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    }
+html{
+    scroll-behavior: smooth;
+}
+main {
+    overflow: hidden;
+}
+:root {
+    --color-black: #060A24;
+    --color-blue1: #0000FF;
+    --color-blue2: #0000A3;
+    --color-turquoise: #00f3bb;
+    --color-white: #FFFFFF;
+    --color-grey: #eff0f567; 
+}
+/*0. General*/
+    h1,
+    h2,
+    figcaption {    
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-size: 36px;
+    }
+    a,
+    .episodios h2,
+    .novedades h2 {
+        color: var(--color-white);
+        font-weight: 300;
+    }
+    p,
+    a {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 14px;
+    }
+    figcaption{
+        font-size: 24px;
+        font-weight:bolder;
+        text-align: center;
+        width: 200px;      
+    }
+    img,
+    iframe {
+        margin: 20px;
+    }
+    .disflex{
+        display: flex;
+    }
+    h2,
+    header,
+    .cont-nosotros-p {
+        margin: 5%;
+    }
+/*1. Header*/
+    /*1.1. Menu*/    
+        .menu{
+            height: 44px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu img {
+            margin: 0px;
+        }
+        .menu-hamburguer {
+            position: relative;
+        }
+        .input-menu {
+            display: none;
+        }
+        .input-menu:checked ~ .cont-menu-mobil{
+            left: calc(-100vw + 34px);
+        }
+        .input-menu:checked ~ label .inner {
+            transform: translateY(10px) rotate(45deg);
+        }
+        .input-menu:checked ~ label .inner::after {
+            transform: translateY(-5px) rotate(90deg);
+        }
+        .input-menu:checked ~ label .inner::before {
+            opacity: 0;
+        }
+        .label-menu {
+            cursor: pointer;
+            position: relative;
+            display: block;
+            height: 20px;
+            width: 20px;       
+        }         
+        .inner,
+        .inner::after,
+        .inner::before {  
+            content: '';
+            width: 20px;
+            height: 2px;
+            border-radius: 2px;
+            background-color: var(--color-black);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .inner::after {
+            top: 5px;
+        }
+        .inner::before {
+            top: 10px;
+        }
+        .cont-menu-mobil {
+            position: absolute;
+            left: 20px;
+            bottom: -248px; 
+        }
+        .cont-menu-mobil a {
+            padding: 16px 24px;
+            background-color: var(--color-blue1);
+            display: block;
+        }
+        .cont-menu-mobil,
+        .cont-menu-mobil ul,
+        .cont-menu-mobil li,
+        .cont-menu-mobil a { 
+            width: 100vw;
+        }
+        .cont-menu-mobil a:hover {
+            text-decoration: line-through;
+            color: var(--color-turquoise);
+        }          
+        .cont-menu-mobil a:active{
+            color: var(--color-grey);
+        }
+/*1.2. Principal*/
+        header span:first-child {
+            text-decoration: line-through;     
+        }    
+        header span:nth-child(2){
+            color: var(--color-blue1);
+        }
+        .boton {
+            font-weight: bold;
+            background-color: var(--color-turquoise);
+            color: var(--color-black);
+            display: block;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .boton:hover{
+            background: linear-gradient(330deg, var(--color-blue1) 0%, var(--color-turquoise) 100%);
+            color: var(--color-white);
+        }
+/*2. Episodios*/
+        .episodios,
+        .cont-entrevistas {
+            margin-top: 20px;
+        }
+        .episodios {
+            padding: 64px 0 150px 0;
+        }
+        .gradientefondo{
+            background-image: linear-gradient(225deg, var(--color-blue1) 0%, var(--color-blue2) 100%);
+            clip-path: polygon(0 3%, 100% 0, 100% 92%, 0 97%); 
+        }
+        .cont-episodios {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;  
+        }
+/*3.Nosotros*/
+            .nosotros,
+            figure,
+            .novedades,
+            .cont-footer {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .cont-nosotros-img {
+                z-index: 2;
+                margin: -15vh 0 0 0;
+            }
+            .cont-nosotros-p h2{
+                margin: 0%;
+            }
+            .cont-entrevistas > img {
+                margin: -3px;
+            }
+/*5.Tópicos*/
+            .topicos div{
+                justify-content: center;
+                display: flex;
+                flex-wrap: wrap;
+            }
+/*6.Novedades*/
+            .novedades {
+                padding: 10% 5%;
+                clip-path: polygon(0 18%, 100% 0%, 100% 100%, 0 100%);
+            }
+            .novedades> h2 {
+                text-align: center;
+            }
+            .novedades a {
+                width: 100%;
+            }
+/*7. Footer*/
+            .cont-footer-icon a:hover {
+                filter: invert(73%) sepia(78%) saturate(1548%) hue-rotate(109deg) brightness(97%) contrast(101%);
+            }
+
+@media screen and (min-width: 900px) {
+            .menu,
+            .cont-footer,
+            .cont-episodios {
+                margin: 0 30px;
+            }
+            .nosotros,
+            header,
+            #episodios h2,
+            #entrevistas h2 {
+                margin: auto 10%;
+            }
+            h2{
+                font-size: 48px;
+            }
+            .menu-hamburguer,
+            header p,
+            .cont-nosotros-p {
+                width: 60%;
+                font-size: 16px;
+            }
+        /*Menu*/
+            h1 {
+                font-size: 64px;
+            }
+            .label-menu {
+                display: none;
+            }
+            .menu img {
+                width: 36px;
+                height: 36px;
+            }
+            .cont-menu-mobil {
+                position: static;
+            }
+            .cont-menu-mobil,
+            .cont-menu-mobil ul,
+            .cont-menu-mobil li,
+            .cont-menu-mobil a {
+                width: 100%;
+            }
+            .cont-menu-mobil ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .cont-menu-mobil a {
+                text-align-last: center;
+                background: none;
+                color: var(--color-black);
+            }
+        /*Principal*/
+            header a {
+                width: 30%;
+            }
+            header p,
+            .cont-nosotros-p {
+                font-size: 16px;
+            }
+            .boton {
+                font-size: 18px;
+            }
+        /*Episodio*/
+            .cont-episodios{
+                flex-direction: row;
+            }   
+            iframe{
+                width: 45%; 
+            }
+        /*Nosotros*/
+            .nosotros{
+                flex-direction: row;
+                width: 80%;
+                }
+            .cont-nosotros-p {
+                margin-bottom: 10vh;
+            }
+        /*Entrevistas*/
+            .cont-entrevistas {
+                flex-wrap: wrap;
+            }
+            .cont-entrevistas > img {
+                width: 33.3%;
+            }
+        /*Topicos*/
+            .topicos div {
+                display: flex;
+                flex-direction: row;
+            }
+        /*Novedad*/
+            .novedades a{
+                align-self: center;
+                width: 40%;   
+            }
+        /*Pie*/
+            .cont-footer{
+                justify-content: space-between;
+                display: flex;
+                flex-direction: row;
+            }
+        }
+
+    @media screen and (min-width: 600px) {
+                    .cont-entrevistas > img {
+                        max-width: 50%;
+                    }
+                    .cont-entrevistas {
+                        flex-wrap: wrap;
+                    }
+    }
